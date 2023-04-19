@@ -1,4 +1,4 @@
-name: Compile Python Script and Send to Discord Every Friday Morning
+name: Friday Daily on Discord
 
 on:
   schedule:
