@@ -1,0 +1,29 @@
+name: Compile Python Script and Send to Discord Every Friday Morning
+
+on:
+  schedule:
+    - cron: '0 10 * * 5' # Runs at 10:00 AM (UTC) every Friday
+  workflow_dispatch: # Manually start up
+
+jobs:
+  compile-and-send:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x # Replace 'x' with the specific Python version you need
+
+      - name: Install discord-webhook package
+        run: pip install discord-webhook
+
+      - name: Run Python Script and Send to Discord
+        env:
+          WEBHOOK_DISCORD: ${{ secrets.WEBHOOK_DISCORD }}
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+        run: |
+          python your_script.py $WEBHOOK_DISCORD $BOT_TOKEN
