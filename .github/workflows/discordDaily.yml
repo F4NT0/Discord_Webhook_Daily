@@ -24,6 +24,6 @@ jobs:
       - name: Run Python Script and Send to Discord
         env:
           WEBHOOK_DISCORD: ${{ secrets.WEBHOOK_DISCORD }}
-          BOT_TOKEN: ${{ secrets.BOT_DISCORD }}
+          BOT_DISCORD: ${{ secrets.BOT_DISCORD }}
         run: |
           python sender.py $WEBHOOK_DISCORD $BOT_DISCORD
