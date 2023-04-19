@@ -16,7 +16,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.x # Replace 'x' with the specific Python version you need
+          python-version: 3.9
 
       - name: Install discord-webhook package
         run: pip install discord-webhook
@@ -26,4 +26,4 @@ jobs:
           WEBHOOK_DISCORD: ${{ secrets.WEBHOOK_DISCORD }}
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
-          python your_script.py $WEBHOOK_DISCORD $BOT_TOKEN
+          python sender.py $WEBHOOK_DISCORD $BOT_TOKEN
